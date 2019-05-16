@@ -1,0 +1,91 @@
+body{
+    position: relative;
+    background-color: #F9F9F9;
+    overflow-y: auto;
+    color: #666;
+    font-size: 14px;
+    #wrapper{
+        width: 850px;
+        height: 550px;
+        background: #fff;
+        margin: 30px auto 0;
+    }
+    .n-logo img{
+        margin-bottom: 40px;
+        display: block;
+        margin: 0 auto;
+    }
+    .n-title{
+        text-align: center;
+        font-size: 30px;
+        font-weight: normal;
+        color: #333;
+        line-height: 1.5;
+        margin: 20px 0;
+    }
+    .n-input{
+        width: 332px;
+        margin: auto;
+        p{
+            font-size: 14px;
+            color: #333;
+            padding-bottom: 5px;
+            line-height: 28px;
+        }
+        #txt1{
+            width: 330px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #E8E8E8;
+            color: #555;
+        }
+        .num-select{
+            height: 40px;
+            width: 330px;
+            border: 1px solid #E8E8E8;
+            span{
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                border-right: 1px solid #E8E8E8;float: left;
+                text-align: center;
+            }
+            #txt2{
+                line-height: 40px;
+            }
+        }
+        .zc-btn{
+            display: block;
+            width: 330px;
+            height: 40px;
+            background: #FF6700;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            opacity: 1;
+            margin-top: 35px;
+        }
+        .zc-btn:hover{
+            opacity: 0.7;
+        }
+     } 
+     .msg{
+         color: #9b9b9b;
+         margin: 0 auto;
+         .msg-sel{
+             cursor: pointer;
+             display: inline-block;
+            margin: 100px 0 0 210px;
+             i{
+                 font-size: 20px;
+                 width: 20px;
+                 height: 20px;
+                 line-height: 20px;
+             }
+             a{
+                 color: #333;
+                 font-weight: bold;
+             }
+         }
+     } 
+}

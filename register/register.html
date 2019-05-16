@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/register.min.css" />
+		<link rel="stylesheet" type="text/css" href="font_sqdlvpdrrie/iconfont.css" />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<div class="wrap">
+				<div class="n-form">
+					<div class="n-logo">
+						<img src="img/logo-footer.png" />
+					</div>
+					<div class="n-title">
+						<h4>注册小米账号</h4>
+					</div>
+					<div class="n-input">
+						<p>国家地区</p>
+						<input type="text" name="txt1" id="txt1" placeholder="  请输入国家/地区" />
+						<p>成功注册账号后，国家/地区不能被修改</p>
+						<p>手机号码</p>
+						<div class="num-select">
+							<span>+86</span><input type="text" name="txt" id="txt2" placeholder="  请输入手机号码" onblur="Phone()" />
+							<div id="erren-t"></div>
+						</div>
+						<a href="javascriot:;" class="zc-btn">立即注册</a>
+					</div>
+					<div class="msg">
+						<label class="msg-sel">
+							<i class="iconfont icon-Select"></i>
+							注册账号即表示您同意并愿意遵守小米
+							<a href="#" class="m-agreement" title="用户协议"> 用户协议</a>和
+							<a href="#" class="m-privacy" title="隐私协议">隐私政策</a>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const oSelect = document.querySelector('.msg-sel');
+			const oI = document.querySelector('i');
+			const oZC = document.querySelector('.zc-btn');
+			const oErr = document.querySelector('#erren-t');
+			const oCity = document.querySelector('#txt1');
+			const oPhone = document.querySelector('#txt2');
+
+			//验证电话
+			function Phone() {
+				var ophone = oPhone.value;
+				var re = /^[1][3,4,5,7,8][0-9]{9}$/;
+				if(!re.test(ophone)) {
+					var t = oErr.innerHTML = "手机号码格式错误";
+					return false;
+				} else {
+					oErr.innerHTML = '';
+					return true;
+				}
+			}
+			oSelect.onclick = function(className) {
+				if(className === className) {
+					oI.className = 'iconfont icon-xuanzhong';
+				} else {
+					oI.className = 'iconfont icon-Select';
+				}
+			}
+			oZC.onclick = function() {
+				let ucity = oCity.value;
+				let uphone = oPhone.value;
+				if(!ucity) {
+					alert('国家/地区不能为空');
+					return;
+				}
+				if(!uphone) {
+					alert('手机号码不能为空');
+					return;
+				}
+				let cookieStr = $getCookie('regs') ? $getCookie('regs') : '';
+				let cookieObj = strToObj(cookieStr);
+				if(uname in cookieObj) {
+					alert('该手机号以被注册，是否是本人操作？');
+					return;
+				} else {
+					cookieObj[uname] = upwd;
+				}
+				cookieStr = JSON.stringify(cookieObj);
+				$cookie('regs', cookieStr, 10);
+			}
+		}
+
+			//封装串转对象
+			function strToObj(str) {
+				if(!str) {
+					return {};
+				}
+				return JSON.parse(str);
+			}
+		</script>
+	</body>
+
+</html>

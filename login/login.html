@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.min.css" />
+		<link rel="stylesheet" type="text/css" href="font_sqdlvpdrrie/iconfont.css"/>
+	</head>
+
+	<body>
+		<div id="logo">
+			<a href="#">
+				<img src="img/mistore_logo.png" />
+			</a>
+		</div>
+
+		<div id="login">
+			<img src="img/f838fdcd77715410b441f2f56d8f10cd(3).jpg" />
+			<div class="form">
+				<div class="header">
+					<span class="zh"><a href="#">账号登录</a></span>
+					<span class="spe">|</span>
+					<span class="sm"><a href="#">扫码登录</a></span>
+				</div>
+				<div class="f-c">
+					<input type="text" name="txt" id="txt" placeholder="   邮箱/手机号码/小米ID" />
+					<input type="password" name="pwd" id="pwd" placeholder="   密码" />
+					<input type="button" name="btn" id="btn" value="登录" />
+					<span class="or">
+						<a href="#">手机短信登录/注册</a>
+					</span>
+					<span class="zc-wj">
+						<a href="#" class="ljzc">立即注册</a> | <a href="#">忘记密码？</a> 
+					</span>
+				</div>
+				<div class="footr">
+					<div class="fr-c">
+						————— 其他方式登录 —————
+					</div>
+					<ul>
+						<a href="#"><i class="iconfont icon-QQdenglu" title="QQ登录"></i></a>
+						<a href="#"><i class="iconfont icon-weibodenglu" title="微博登录"></i></a>
+						<a href="#"><i class="iconfont icon-zhifubaodenglu" title="支付宝登录"></i></a>
+						<a href="#"><i class="iconfont icon-weixindenglu" title="微信登录"></i></a>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			const oName = document.querySelector('#txt');
+			const oPwd = document.querySelector('#pwd');
+			const oDl = document.querySelector('#btn');
+			//跳转注册
+			const oZc = document.querySelector('.ljzc');
+			oZc.onclick = function(){
+				location.href = '../register/register.html';
+			}
+			oDl.onclick = function(){
+				let uname = oName.value;
+				let upwd = oPwd.value;
+				let cookieStr = $getCookie('regs') ? $getCookie('regs') : '';
+				let cookieObj = strToObj(cookieStr);
+				if(uname in cookieObj){
+					if (upwd === cookieObj[uname]) {
+						alert('登录成功！');
+						location.href = 'product.html';
+						return;
+					}else{
+						alert('密码错误！');
+						return;
+					}
+				}else{
+					alert('用户名不存在！');
+					return;
+				}
+			}
+			function strToObj(str){
+				if(!str){
+					return {};
+				}
+				return JSON.parse(str);
+			}
+		</script>
+	</body>
+
+</html>

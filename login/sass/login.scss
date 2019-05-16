@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+}
+
+#logo,
+#login {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#logo {
+    width: 100%;
+    padding-top: 20px;
+    img {
+        float: left;
+        margin: 0 auto;
+        margin-left: 90px;
+    }
+}
+
+#login {
+    position: relative;
+    overflow: hidden;
+    height: 680px;
+    img {
+        height: 588px;
+        position: absolute;
+        left: 50%;
+        margin-left: -1280px;
+        z-index: 1;
+    }
+    .form {
+        position: absolute;
+        top: 64px;
+        right: 100px;
+        z-index: 100;
+        width: 410px;
+        height: 524px;
+        background: #fff;
+        .header {
+            height: 82px;
+            margin-top: 20px;
+            text-align: center;
+            .zh a {
+                font-size: 24px;
+                color: #F56600;
+            }
+            .spe {
+                font-size: 24px;
+                margin: 0 35px 0 42px;
+                color: #E0E0E0;
+            }
+            .sm a {
+                font-size: 24px;
+                color: #333;
+            }
+        }
+        .f-c {
+            text-align: center;
+            #txt {
+                width: 346px;
+                height: 48px;
+                border: 1px solid #B0B0B0;
+                color: #4a4a4a;
+                margin-bottom: 20px;
+            }
+            #pwd {
+                @extend #txt;
+            }
+            #btn {
+                @extend #txt;
+                display: block;
+                margin: 0 auto;
+                border: 0;
+                background: #FF6700;
+                color: #fff;
+                cursor: pointer;
+            }
+            .or a {
+                text-align: center;
+                font-size: 14px;
+                color: #FF6700;
+                margin: 5px 90px 0 -10px;
+            }
+            .zc-wj {
+                color: #999;
+                font-size: 14px;
+            }
+            a {
+                font-size: 14px;
+                color: #999;
+            }
+        }
+        .footr{
+            text-align: center;
+            margin-top: 150px;
+        }
+        .fr-c{
+             font-size: 14px;
+             color: #B0B0B0;
+         }
+         ul a i{
+             font-size: 32px;
+         }
+         ul a:first-child i{
+             font-size: 40px;
+         }
+         ul a:nth-child(2) i{
+             font-size: 40px;
+         }
+        
+    }
+}
